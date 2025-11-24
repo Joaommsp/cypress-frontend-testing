@@ -1,0 +1,26 @@
+name: Testes Cypress CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+      
+      - name: Executar Testes Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          browser: chrome
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
