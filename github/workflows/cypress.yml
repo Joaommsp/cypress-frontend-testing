@@ -3,8 +3,7 @@ name: Testes Cypress CI/CD
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   cypress-run:
@@ -16,6 +15,3 @@ jobs:
       
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
