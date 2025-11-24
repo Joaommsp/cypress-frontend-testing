@@ -74,7 +74,7 @@ function App() {
 
         {mostrarSucesso && (
           <div className="mensagem-sucesso">
-            ✓ Formulário enviado com sucesso!
+            Formulário enviado com sucesso!
           </div>
         )}
       </div>

@@ -9,6 +9,6 @@ describe('Teste de Submit de Formulário', () => {
     
     cy.get('[data-cy="btn-enviar"]').click()
     
-    cy.contains('Formulário enviado com sucesso').should('be.visible')
+    cy.contains('Formulário enviado com sucesso!').should('be.visible')
   })
 })
