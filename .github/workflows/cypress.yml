@@ -1,13 +1,10 @@
 name: Testes Cypress CI/CD
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+on: [push, pull_request]
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
@@ -15,3 +12,8 @@ jobs:
       
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          build: npm run build
+          start: npm run dev
+          wait-on: 'http://localhost:5173'
+          wait-on-timeout: 120
